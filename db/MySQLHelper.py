@@ -98,7 +98,7 @@ class MySQLHelper(object):
 
 if __name__ == "__main__":
     sql = MySQLHelper(db_host='127.0.0.1', db_user='root', db_password='wanersoft', db_name='novel_v11')
-    names = u'张寿财33'
+    names = u'张寿财333'
     str2 = "insert into ws_member(account) VALUE ('%s')" % names
     result = sql.insert(str2)
     print result
