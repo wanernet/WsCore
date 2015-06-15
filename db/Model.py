@@ -5,8 +5,10 @@ import sys
 
 reload(sys)
 sys.setdefaultencoding('utf8')
-from db.mysql.MySQLHelper import MySQLHelper as MySQLHelper
-from db.ModelMetaclass import ModelMetaclass
+from mysql.MySQLHelper import MySQLHelper
+from ModelMetaclass import ModelMetaclass
+from Kenel.JSON import JSON
+from Kenel.XML import XML
 
 
 class Model(dict):
@@ -177,6 +179,26 @@ class Model(dict):
         # print sql_str
         r = sql.first(sql_str, pk)
         return cls(**r) if r else None
+
+    def toJSON(self):
+        """ 转换JSON格式
+        :return:
+        """
+        return JSON.toJSON(self)
+
+    @classmethod
+    def fromJSON(cls, s):
+        r = JSON.formJSON(s)
+        return cls(**r) if r else None
+
+    # def toXML(self):
+    #     json = self.toJSON()
+    #     return XML.toXML(json)
+    #
+    # @classmethod
+    # def formXML(cls, xml):
+    #     json = JSON.toJSON(XML.formXML(xml), indent=4)
+    #     return cls.fromJSON(json)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
 
+__author__ = 'Waner <wanernet@qq.com>'
+__all__ = ["Field", "StringField", "BooleanField",
+           "IntegerField", "BigIntegerField", "FloatField", "TextField",
+           "TimestampField"]
+
 import sys
 
 reload(sys)
